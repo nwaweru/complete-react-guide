@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ValidationComponent from './ValidationComponent/ValidationComponent';
-import CharComponent from './CharComponent/CharComponent';
+import Validation from './Validation/Validation';
+import Char from './Char/Char';
 
 import './App.css';
 
@@ -31,7 +31,7 @@ class App extends Component {
     chars = (
       <div>
         {this.state.inputText.split('').map((char, index) => {
-          return <CharComponent key={index} char={char} onClick={() => this.deleteCharHandler(index)} />
+          return <Char key={index} char={char} onClick={() => this.deleteCharHandler(index)} />
         })}
       </div>
     );
@@ -41,7 +41,7 @@ class App extends Component {
         <h1>Assignment Two</h1>
         <p><input type="text" value={this.state.inputText} onChange={this.countTextHandler} /></p>
         <p>Length: {this.state.inputText.length}</p>
-        <ValidationComponent inputLength={this.state.inputText.length} />
+        <Validation inputLength={this.state.inputText.length} />
         {chars}
       </div>
     );
