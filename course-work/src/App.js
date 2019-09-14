@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import Person from './Person/Person';
+import uuid from 'uuid';
 
 import './App.css';
 
 class App extends Component {
   state = {
     persons: [
-      { id: 'qerdfaer', name: 'Ndirangu', age: 28 },
-      { id: 'rughdyewr', name: 'Waweru', age: 35 },
-      { id: 'vcjfbg4', name: 'Sharon', age: 16 }
+      { id: uuid.v4(), name: 'Ndirangu', age: 28 },
+      { id: uuid.v4(), name: 'Waweru', age: 35 },
+      { id: uuid.v4(), name: 'Sharon', age: 16 }
     ],
     otherProp: 'Some other value',
     showPersons: false
@@ -48,7 +49,8 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color: 'white',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
@@ -70,12 +72,24 @@ class App extends Component {
           })}
         </div>
       );
+
+      style.backgroundColor = 'red';
+    }
+
+    const classes = [];
+
+    if (this.state.persons.length <= 2) {
+      classes.push('red');
+    }
+
+    if (this.state.persons.length <= 1) {
+      classes.push('bold');
     }
 
     return (
       <div className="App">
         <h1>This is React</h1>
-        <p>This is working!</p>
+        <p className={classes.join(' ')}>This is working!</p>
 
         <button
           style={style}

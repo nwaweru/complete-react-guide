@@ -6,7 +6,8 @@
     "radium": "^0.26.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "1.1.5"
+    "react-scripts": "1.1.5",
+    "uuid": "^3.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
