@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './Person.css';
+import styles from './Person.css';
 
 const person = (props) => {
     return (
-        <div className="Person">
+        <div className={styles.Person}>
             <p>
                 I am <b onClick={props.deletePerson}>{props.name}</b> and I am <b>{props.age}</b> years old.
                 <br />
