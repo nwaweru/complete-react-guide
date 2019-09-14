@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Person from './Person/Person';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 import uuid from 'uuid';
 import styles from './App.css';
 
@@ -54,12 +55,13 @@ class App extends Component {
       persons = (
         <div>
           {this.state.persons.map((person, index) => {
-            return <Person 
-              key={person.id} 
-              name={person.name} 
-              age={person.age} 
-              changeName={(event) => this.changeNameHandler(event, person.id)}
-              deletePerson={() => this.deletePersonHandler(index)} />
+            return <ErrorBoundary key={person.id}>
+              <Person 
+                name={person.name} 
+                age={person.age} 
+                changeName={(event) => this.changeNameHandler(event, person.id)}
+                deletePerson={() => this.deletePersonHandler(index)} />
+            </ErrorBoundary>
           })}
         </div>
       );
