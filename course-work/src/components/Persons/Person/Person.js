@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Aux from '../../../hoc/Aux';
 import withClass from '../../../hoc/withClass';
-import styles from './Person.css';
 import PropTypes from 'prop-types';
+import AuthContext from '../../../context/auth-context';
+import styles from './Person.css';
 
 class Person extends Component {
     constructor(props) {
@@ -10,9 +11,12 @@ class Person extends Component {
         this.inputElementRef = React.createRef();
     }
 
+    static contextType = AuthContext;
+
     componentDidMount() {
         // this.inputElement.focus();
         this.inputElementRef.current.focus();
+        console.log(this.context.authenticated);
     }
 
     render(){
@@ -20,7 +24,8 @@ class Person extends Component {
 
         return (
             <Aux>
-                {(this.props.isAuth) ? <p>Authenticated</p> : <p>Please log in</p>}
+                {(this.context.authenticated) ? <p>Authenticated</p> : <p>Please log in</p>}
+
                 <p>I am <b onClick={this.props.deletePerson}>{this.props.name}</b> and I am <b>{this.props.age}</b> years old.</p>
                 <p>
                     <input 

@@ -3,6 +3,7 @@ import Persons from '../../components/Persons/Persons';
 import Cockpit from '../../components/Cockpit/Cockpit';
 import Aux from '../../hoc/Aux';
 import withClass from '../../hoc/withClass';
+import AuthContext from '../../context/auth-context';
 import uuid from 'uuid';
 import styles from './App.css';
 
@@ -112,15 +113,19 @@ class App extends Component {
           }}
         >Remove Cockpit</button>
 
-        {(this.state.showCockpit) ? <Cockpit 
-          title={this.props.appTitle}
-          showPersons={this.state.showPersons}
-          personsLength={this.state.persons.length}
-          togglePersons={this.togglePersonsHandler}
-          login={this.loginHandler}
-        /> : null}
+        <AuthContext.Provider value={{
+          authenticated: this.state.authenticated,
+          login: this.loginHandler
+        }}>
+          {(this.state.showCockpit) ? <Cockpit 
+            title={this.props.appTitle}
+            showPersons={this.state.showPersons}
+            personsLength={this.state.persons.length}
+            togglePersons={this.togglePersonsHandler}
+          /> : null}
 
-        {persons}
+          {persons}
+        </AuthContext.Provider>
       </Aux>
     );
   }

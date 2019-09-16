@@ -55,7 +55,6 @@ class Persons extends PureComponent {
                 age={person.age}
                 changeName={(event) => this.props.changeName(event, person.id)}
                 deletePerson={() => this.props.deletePerson(index)}
-                isAuth={this.props.isAuthenticated}
             />
         });
     }
