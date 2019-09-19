@@ -14,7 +14,7 @@ class NewPost extends Component {
         const post = {
             title: this.state.title,
             body: this.state.content,
-            author: this.state.author,
+            author: this.state.author
         };
 
         axios.post('/posts', post).then(response => {

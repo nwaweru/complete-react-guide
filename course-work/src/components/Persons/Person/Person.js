@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+
+import styles from './Person.css';
+import PropTypes from 'prop-types';
 import Aux from '../../../hoc/Aux';
 import withClass from '../../../hoc/withClass';
-import PropTypes from 'prop-types';
 import AuthContext from '../../../context/auth-context';
-import styles from './Person.css';
 
 class Person extends Component {
     constructor(props) {

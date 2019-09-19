@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Persons from '../../components/Persons/Persons';
-import Cockpit from '../../components/Cockpit/Cockpit';
+
+import uuid from 'uuid';
+import styles from './App.css';
 import Aux from '../../hoc/Aux';
 import withClass from '../../hoc/withClass';
 import AuthContext from '../../context/auth-context';
-import uuid from 'uuid';
-import styles from './App.css';
+import Persons from '../../components/Persons/Persons';
+import Cockpit from '../../components/Cockpit/Cockpit';
 
 class App extends Component {
   constructor(props) {
@@ -75,7 +76,7 @@ class App extends Component {
     });
   };
 
-  deletePersonHandler = (personIndex) => {
+  deletePersonHandler = personIndex => {
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({
@@ -84,9 +85,7 @@ class App extends Component {
   };
 
   loginHandler = () => {
-    this.setState({
-      authenticated: true
-    });
+    this.setState({ authenticated: true });
   };
 
   render() {
@@ -107,9 +106,7 @@ class App extends Component {
       <Aux>
         <button
           onClick={() => {
-            this.setState({
-              showCockpit: false
-            });
+            this.setState({ showCockpit: false });
           }}
         >Remove Cockpit</button>
 

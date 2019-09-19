@@ -1,28 +1,19 @@
 import React, { Component } from 'react';
-import Validation from './Validation/Validation';
-import Char from './Char/Char';
 
 import './App.css';
+import Char from '../../components/Char/Char';
+import Validation from '../../components/Validation/Validation';
 
 class App extends Component {
-  state = {
-    inputText: ''
-  };
+  state = { inputText: '' };
 
-  countTextHandler = (event) => {
-    this.setState({
-      inputText: event.target.value
-    });
+  countTextHandler = event => {
+    this.setState({ inputText: event.target.value });
   }
 
-  deleteCharHandler = (index) => {
-    const charArray = this.state.inputText.split('');
-    charArray.splice(index, 1);
-    const newText = charArray.join('');
-    
-    this.setState({
-      inputText: newText
-    });
+  deleteCharHandler = index => {
+    const inputText = this.state.inputText.split('').splice(index, 1).join('');    
+    this.setState({ inputText });
   }
 
   render() {

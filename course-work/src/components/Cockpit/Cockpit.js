@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useContext } from 'react';
-import AuthContext from '../../context/auth-context';
-import styles from './Cockpit.css';
 
-const cockpit = (props) => {
+import styles from './Cockpit.css';
+import AuthContext from '../../context/auth-context';
+
+const cockpit = props => {
     const authContext = useContext(AuthContext);
     console.log(authContext.authenticated);
 
@@ -10,10 +11,6 @@ const cockpit = (props) => {
 
     useEffect(() => {
         console.log('[Cockpit.js] useEffect');
-        
-        // setTimeout(() => {
-        //     alert('Changes Saved!');
-        // }, 1000);
 
         toggleBtnRef.current.click();
 

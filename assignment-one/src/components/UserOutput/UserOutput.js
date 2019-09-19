@@ -1,6 +1,6 @@
 import React from 'react';
 
-const userOutput = (props) => {
+const userOutput = props => {
     let style = {
         width: '50%',
         margin: '16px auto',

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+
 import Person from './Person/Person';
 
 class Persons extends PureComponent {
@@ -59,7 +60,5 @@ class Persons extends PureComponent {
         });
     }
 }
-
-
 
 export default Persons;
