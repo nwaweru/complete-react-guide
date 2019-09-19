@@ -4,8 +4,8 @@ import styles from './Burger.css';
 import PropTypes from 'prop-types';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 
-const burger = (props) => {
-    let transformedIngredients = Object.keys(props.ingredients).map((ingredientKey) => {
+const burger = props => {
+    let transformedIngredients = Object.keys(props.ingredients).map(ingredientKey => {
         return [...Array(props.ingredients[ingredientKey])].map((_, index) => {
             return <BurgerIngredient key={ingredientKey + index} type={ingredientKey} />
         });

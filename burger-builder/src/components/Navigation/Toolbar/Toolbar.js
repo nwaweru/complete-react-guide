@@ -5,7 +5,7 @@ import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
 
-const toolbar = (props) => (
+const toolbar = props => (
     <header className={styles.Toolbar}>
         <DrawerToggle showSideDrawer={props.showSideDrawer} />
 

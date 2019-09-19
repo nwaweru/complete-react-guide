@@ -26,7 +26,7 @@ class BurgerBuilder extends Component {
         purchasing: false,
     };
 
-    addIngredientHandler = (type) => {
+    addIngredientHandler = type => {
         const updatedIngredients = { ...this.state.ingredients };
         updatedIngredients[type] = this.state.ingredients[type] + 1;
 
@@ -38,7 +38,7 @@ class BurgerBuilder extends Component {
         this.updatePurchaseState(updatedIngredients);
     };
 
-    removeIngredientHandler = (type) => {
+    removeIngredientHandler = type => {
         const oldCount = this.state.ingredients[type];
 
         if (oldCount <= 0) {
@@ -57,8 +57,8 @@ class BurgerBuilder extends Component {
     };
 
     updatePurchaseState(ingredients) {
-        const sum = Object.keys(ingredients).map((igKey) => {
-            return ingredients[igKey];
+        const sum = Object.keys(ingredients).map(ingredientKey => {
+            return ingredients[ingredientKey];
         }).reduce((sum, el) => {
             return sum + el;
         }, 0);

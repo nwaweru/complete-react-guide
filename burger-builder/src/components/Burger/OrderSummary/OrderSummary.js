@@ -3,12 +3,12 @@ import React from 'react';
 import Aux from '../../../hoc/Aux/Aux';
 import Button from '../../UI/Button/Button';
 
-const orderSummary = (props) => {
-    const ingredientSummary = Object.keys(props.ingredients).map((igKey) => {
+const orderSummary = props => {
+    const ingredientSummary = Object.keys(props.ingredients).map(ingredientKey => {
         return (
-            <li key={igKey}>
-                <span style={{ textTransform: 'capitalize' }}>{igKey}</span>:
-                {props.ingredients[igKey]}
+            <li key={ingredientKey}>
+                <span style={{ textTransform: 'capitalize' }}>{ingredientKey}</span>:
+                {props.ingredients[ingredientKey]}
             </li>
         );
     });

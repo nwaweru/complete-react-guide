@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './NavigationItem.css';
 
-const navigationItem = (props) => (
+const navigationItem = props => (
     <li className={styles.NavigationItem}>
         <a 
             href={props.href}

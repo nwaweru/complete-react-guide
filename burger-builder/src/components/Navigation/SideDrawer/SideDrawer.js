@@ -6,7 +6,7 @@ import Aux from '../../../hoc/Aux/Aux';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import NavigationItems from '../NavigationItems/NavigationItems';
 
-const sideDrawer = (props) => {
+const sideDrawer = props => {
     let attachedClasses = [styles.SideDrawer, styles.Close];
 
     if (props.open) {
