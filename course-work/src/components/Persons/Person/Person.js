@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import styles from './Person.css';
+import classes from './Person.css';
 import PropTypes from 'prop-types';
 import Aux from '../../../hoc/Aux';
 import withClass from '../../../hoc/withClass';
@@ -50,4 +50,4 @@ Person.propTypes = {
     deletePerson: PropTypes.func
 };
 
-export default withClass(Person, styles.Person);
+export default withClass(Person, classes.Person);

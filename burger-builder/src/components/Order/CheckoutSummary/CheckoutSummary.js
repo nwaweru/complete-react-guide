@@ -1,12 +1,12 @@
 import React from 'react';
 
 import Burger from '../../Burger/Burger';
-import styles from './CheckoutSummary.css';
+import classes from './CheckoutSummary.css';
 import Button from '../../UI/Button/Button';
 
 const checkoutSummary = props => {
     return (
-        <div className={styles.CheckoutSummary}>
+        <div className={classes.CheckoutSummary}>
             <h1>Enjoy your Meal!</h1>
             <div style={{ width: '100%', margin: 'auto' }}>
                 <Burger ingredients={props.ingredients} />

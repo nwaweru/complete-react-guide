@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import uuid from 'uuid';
-import styles from './App.css';
+import classes from './App.css';
 import Aux from '../../hoc/Aux';
 import withClass from '../../hoc/withClass';
 import AuthContext from '../../context/auth-context';
@@ -128,4 +128,4 @@ class App extends Component {
   }
 }
 
-export default withClass(App, styles.App);
+export default withClass(App, classes.App);

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useContext } from 'react';
 
-import styles from './Cockpit.css';
+import classes from './Cockpit.css';
 import AuthContext from '../../context/auth-context';
 
 const cockpit = props => {
@@ -44,7 +44,7 @@ const cockpit = props => {
     }
 
     return (
-        <div className={styles.Cockpit}>
+        <div className={classes.Cockpit}>
             <h1>{props.title}</h1>
             <p className={assignedClasses.join(' ')}>This is working!</p>
 
