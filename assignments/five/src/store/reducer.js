@@ -1,5 +1,4 @@
 import uuid from 'uuid';
-import faker from 'faker';
 import * as actionTypes from './actions';
 
 const initialState = {
@@ -11,8 +10,8 @@ const reducer = (state = initialState, action) => {
         case actionTypes.ADD_PERSON:
             const newPerson = {
                 id: uuid.v4(),
-                name: faker.name.findName(),
-                age: Math.floor(Math.random() * 40)
+                name: action.name,
+                age: action.age
             };
 
             return {
