@@ -114,7 +114,7 @@ class ContactData extends Component {
             formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
         }
 
-        this.setState({ 
+        this.setState({
             orderForm: updatedOrderForm,
             formIsValid
         });
@@ -164,10 +164,11 @@ class ContactData extends Component {
         const order = {
             ingredients: this.props.ingredients,
             price: this.props.totalPrice,
-            orderData: formData
+            orderData: formData,
+            userId: this.props.userId
         };
 
-        this.props.purchaseBurger(order);
+        this.props.purchaseBurger(order, this.props.authToken);
     };
 
     render() {
@@ -185,8 +186,8 @@ class ContactData extends Component {
                 {formElementsArray.map(formElement => {
                     return <Input
                         key={formElement.id}
-                        elementType={formElement.config.elementType} 
-                        elementConfig={formElement.config.elementConfig} 
+                        elementType={formElement.config.elementType}
+                        elementConfig={formElement.config.elementConfig}
                         value={formElement.config.value}
                         shouldValidate={formElement.config.validation}
                         invalid={!formElement.config.valid}
@@ -194,7 +195,7 @@ class ContactData extends Component {
                         onChange={(event) => this.inputChangeHandler(event, formElement.id)}
                     />
                 })}
-                
+
                 <Button btnType="Success" disabled={!this.state.formIsValid}>Place Order</Button>
             </form>
         );
@@ -216,13 +217,15 @@ const mapStateToProps = state => {
     return {
         ingredients: state.burgerBuilder.ingredients,
         totalPrice: state.burgerBuilder.totalPrice,
-        loading: state.order.loading
+        authToken: state.auth.token,
+        loading: state.order.loading,
+        userId: state.auth.userId
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        purchaseBurger: order => dispatch(orderActions.purchaseBurger(order))
+        purchaseBurger: (order, token) => dispatch(orderActions.purchaseBurger(order, token))
     };
 };
 

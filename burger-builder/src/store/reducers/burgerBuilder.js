@@ -4,7 +4,8 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
     ingredients: null,
     totalPrice: 4,
-    error: false
+    error: false,
+    building: false
 };
 
 const ingredientPrices = {
@@ -23,7 +24,8 @@ const setIngredients = (state, action) => {
             meat: action.ingredients.meat
         },
         totalPrice: 4,
-        error: false
+        error: false,
+        building: false
     });
 };
 
@@ -36,7 +38,8 @@ const addIngredient = (state, action) => {
     const updatedIngredients = updateObject(state.ingredients, updatedIngredient);
     const updatedState = {
         ingredients: updatedIngredients,
-        totalPrice: state.totalPrice + ingredientPrices[action.name]
+        totalPrice: state.totalPrice + ingredientPrices[action.name],
+        building: true
     }
 
     return updateObject(state, updatedState);
@@ -47,7 +50,8 @@ const removeIngredient = (state, action) => {
         ...state,
         ingredients: {
             ...state.ingredients,
-            [action.name]: state.ingredients[action.name] - 1
+            [action.name]: state.ingredients[action.name] - 1,
+            building: true
         },
         totalPrice: state.totalPrice - ingredientPrices[action.name]
     };
