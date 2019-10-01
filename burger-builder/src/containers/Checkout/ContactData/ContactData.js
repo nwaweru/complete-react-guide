@@ -7,7 +7,7 @@ import axios from '../../../axios-orders';
 import Input from '../../../components/UI/Input/Input';
 import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../../components/UI/Spinner/Spinner';
-import * as orderActions from '../../../store/actions/index';
+import * as orderActions from '../../../store/actions';
 import { updateObject, checkValidity } from '../../../shared/utility';
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
 

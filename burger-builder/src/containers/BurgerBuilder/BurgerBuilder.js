@@ -6,7 +6,7 @@ import Aux from '../../hoc/Aux/Aux';
 import axios from '../../axios-orders';
 import Modal from '../../components/UI/Modal/Modal';
 import Burger from '../../components/Burger/Burger';
-import * as actions from '../../store/actions/index';
+import * as actions from '../../store/actions';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';

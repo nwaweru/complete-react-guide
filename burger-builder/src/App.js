@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 
 import Layout from './hoc/Layout/Layout';
-import * as actions from './store/actions/index';
+import * as actions from './store/actions';
 import Logout from './containers/Auth/Logout/Logout';
 import asyncComponent from './hoc/asyncComponent/asyncComponent';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
