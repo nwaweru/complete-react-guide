@@ -1,7 +1,7 @@
 import React from 'react';
 
-import IngredientForm from './IngredientForm';
-import Search from './Search';
+import IngredientForm from './IngredientForm/IngredientForm';
+import Search from './Search/Search';
 
 function Ingredients() {
   return (
