@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Card from './UI/Card';
 import './Auth.css';
+import Card from './UI/Card';
 
 const Auth = props => {
   const loginHandler = () => {};

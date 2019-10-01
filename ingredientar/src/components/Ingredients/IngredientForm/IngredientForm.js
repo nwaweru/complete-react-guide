@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Card from '../../UI/Card/Card';
 import './IngredientForm.css';
+import Card from '../../UI/Card/Card';
 
 const IngredientForm = React.memo(props => {
   const submitHandler = event => {
