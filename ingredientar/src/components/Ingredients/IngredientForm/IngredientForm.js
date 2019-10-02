@@ -2,34 +2,15 @@ import React, { useState } from 'react';
 
 import './IngredientForm.css';
 import Card from '../../UI/Card/Card';
+import LoadingIndicator from '../../UI/LoadingIndicator/LoadingIndicator';
 
 const IngredientForm = React.memo(props => {
-  const state = useState({
-    title: '',
-    amount: ''
-  });
-
-  const handleTitleInput = event => {
-    const title = event.target.value;
-
-    state[1](prevState => ({
-      title,
-      amount: prevState.amount
-    }));
-  };
-
-  const handleAmountInput = event => {
-    const amount = event.target.value;
-
-    state[1](prevState => ({
-      title: prevState.title,
-      amount
-    }));
-  };
+  const [enteredTitle, setEnteredTitle] = useState('');
+  const [enteredAmount, setEnteredAmount] = useState('');
 
   const submitHandler = event => {
     event.preventDefault();
-    // ...
+    props.onAddIngredient({ title: enteredTitle, amount: enteredAmount });
   };
 
   return (
@@ -38,14 +19,29 @@ const IngredientForm = React.memo(props => {
         <form onSubmit={submitHandler}>
           <div className="form-control">
             <label htmlFor="title">Name</label>
-            <input type="text" id="title" value={state[0].title} onChange={event => handleTitleInput(event)} />
+            <input
+              type="text"
+              id="title"
+              value={enteredTitle}
+              onChange={event => {
+                setEnteredTitle(event.target.value);
+              }}
+            />
           </div>
           <div className="form-control">
             <label htmlFor="amount">Amount</label>
-            <input type="number" id="amount" value={state[0].amount} onChange={event => handleAmountInput(event)} />
+            <input
+              type="number"
+              id="amount"
+              value={enteredAmount}
+              onChange={event => {
+                setEnteredAmount(event.target.value);
+              }}
+            />
           </div>
           <div className="ingredient-form__actions">
             <button type="submit">Add Ingredient</button>
+            {props.loading && <LoadingIndicator />}
           </div>
         </form>
       </Card>
