@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
 import classes from './Layout.css';
 import Aux from '../../hoc/Aux/Aux';
@@ -6,35 +6,31 @@ import { connect } from 'react-redux';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 
-class Layout extends Component {
-    state = { showSideDrawer: false };
+const layout = props => {
+    const [showSideDrawer, setShowSideDrawer] = useState(false);
 
-    toggleSideDrawerHandler = () => {
-        this.setState(prevState => {
-            return { showSideDrawer: !prevState.showSideDrawer };
-        });
+    const toggleSideDrawerHandler = () => {
+        setShowSideDrawer(!showSideDrawer);
     };
 
-    render() {
-        return (
-            <Aux>
-                <Toolbar
-                    authenticated={this.props.authenticated}
-                    showSideDrawer={this.toggleSideDrawerHandler}
-                />
+    return (
+        <Aux>
+            <Toolbar
+                authenticated={props.authenticated}
+                showSideDrawer={toggleSideDrawerHandler}
+            />
 
-                <SideDrawer
-                    authenticated={this.props.authenticated}
-                    open={this.state.showSideDrawer}
-                    closed={this.toggleSideDrawerHandler}
-                />
+            <SideDrawer
+                authenticated={props.authenticated}
+                open={showSideDrawer}
+                closed={toggleSideDrawerHandler}
+            />
 
-                <main className={classes.Content}>
-                    {this.props.children}
-                </main>
-            </Aux >
-        );
-    }
+            <main className={classes.Content}>
+                {props.children}
+            </main>
+        </Aux >
+    );
 };
 
 const mapStateToProps = state => {
@@ -43,4 +39,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Layout);
+export default connect(mapStateToProps)(layout);
