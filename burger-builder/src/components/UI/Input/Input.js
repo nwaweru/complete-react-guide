@@ -65,6 +65,6 @@ const input = props => {
             {validationError}
         </div>
     );
-}
+};
 
 export default input;

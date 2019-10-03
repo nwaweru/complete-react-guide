@@ -26,6 +26,6 @@ const orderSummary = props => {
             <Button btnType="Success" onClick={props.continuePurchase}>Continue</Button>
         </Aux>
     );
-}
+};
 
 export default orderSummary;
