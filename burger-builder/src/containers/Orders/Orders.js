@@ -8,9 +8,11 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 const orders = props => {
+    const { fetchOrders, authToken, userId } = props;
+
     useEffect(() => {
-        props.fetchOrders(props.authToken, props.userId);
-    }, []);
+        fetchOrders(authToken, userId);
+    }, [fetchOrders, authToken, userId]);
 
     let orders = props.orders.map(order => {
         return <Order
@@ -29,7 +31,7 @@ const orders = props => {
             {orders}
         </div>
     );
-}
+};
 
 const mapStateToProps = state => {
     return {
